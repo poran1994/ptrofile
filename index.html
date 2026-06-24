@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MD SHAH PORAN | Sr. Executive, Engineering</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#0d1117;
+    --card:#161b22;
+    --text:#f0f6fc;
+    --muted:#8b949e;
+    --accent:#22c55e;
+    --accent2:#16a34a;
+    --border:#30363d;
+    --shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+.light{
+    --bg:#ffffff;
+    --card:#f8fafc;
+    --text:#111827;
+    --muted:#6b7280;
+    --accent:#16a34a;
+    --accent2:#15803d;
+    --border:#e5e7eb;
+    --shadow:0 15px 30px rgba(0,0,0,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    transition:.3s ease;
+    overflow-x:hidden;
+}
+
+.container{
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+section{
+    padding:100px 0;
+}
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    backdrop-filter:blur(14px);
+    background:rgba(13,17,23,.75);
+    border-bottom:1px solid rgba(255,255,255,.05);
+    z-index:1000;
+}
+
+.light .navbar{
+    background:rgba(255,255,255,.8);
+}
+
+.nav-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:75px;
+}
+
+.logo{
+    font-size:1.1rem;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    color:var(--text);
+    text-decoration:none;
+    font-size:.95rem;
+}
+
+.nav-links a:hover{
+    color:var(--accent);
+}
+
+.theme-toggle{
+    border:none;
+    background:var(--card);
+    color:var(--text);
+    padding:10px 14px;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    background:
+    radial-gradient(circle at top right, rgba(34,197,94,.15), transparent 35%),
+    radial-gradient(circle at bottom left, rgba(34,197,94,.08), transparent 30%);
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:60px;
+    align-items:center;
+}
+
+.hero h1{
+    font-size:clamp(3rem,7vw,5.5rem);
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.hero h2{
+    color:var(--accent);
+    font-size:1.3rem;
+    margin-bottom:25px;
+}
+
+.hero p{
+    color:var(--muted);
+    line-height:1.8;
+    font-size:1.05rem;
+    max-width:700px;
+}
+
+.hero-buttons{
+    margin-top:35px;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 24px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:var(--accent);
+    color:white;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+}
+
+.btn-outline{
+    border:1px solid var(--border);
+    color:var(--text);
+}
+
+.profile-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:40px;
+    border-radius:30px;
+    text-align:center;
+    box-shadow:var(--shadow);
+}
+
+.profile-photo{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    margin:auto;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:4rem;
+    font-weight:800;
+    color:white;
+}
+
+.section-title{
+    font-size:2.5rem;
+    margin-bottom:20px;
+}
+
+.section-subtitle{
+    color:var(--muted);
+    margin-bottom:50px;
+}
+
+.grid{
+    display:grid;
+    gap:25px;
+}
+
+.skills-grid{
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:30px;
+    border-radius:24px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+.card p,
+.card li{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+.timeline{
+    position:relative;
+}
+
+.timeline::before{
+    content:'';
+    position:absolute;
+    left:15px;
+    top:0;
+    bottom:0;
+    width:2px;
+    background:var(--accent);
+}
+
+.timeline-item{
+    position:relative;
+    margin-left:50px;
+    margin-bottom:40px;
+}
+
+.timeline-item::before{
+    content:'';
+    position:absolute;
+    left:-43px;
+    top:8px;
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    background:var(--accent);
+}
+
+.publication{
+    display:block;
+    color:var(--accent);
+    text-decoration:none;
+    margin-top:10px;
+}
+
+.contact-box{
+    text-align:center;
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:50px;
+    border-radius:30px;
+}
+
+.contact-box a{
+    color:var(--accent);
+    text-decoration:none;
+}
+
+footer{
+    padding:30px;
+    text-align:center;
+    color:var(--muted);
+    border-top:1px solid var(--border);
+}
+
+.hidden{
+    opacity:0;
+    transform:translateY(40px);
+    transition:all .8s ease;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media(max-width:900px){
+
+.hero-grid{
+    grid-template-columns:1fr;
+}
+
+.nav-links{
+    display:none;
+}
+
+.hero{
+    padding-top:80px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+<div class="container nav-inner">
+<div class="logo">SHAH PORAN</div>
+
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#experience">Experience</a>
+<a href="#skills">Skills</a>
+<a href="#education">Education</a>
+<a href="#publications">Publications</a>
+<a href="#contact">Contact</a>
+</div>
+
+<button class="theme-toggle" id="themeBtn">🌙</button>
+</div>
+</nav>
+
+<section class="hero">
+<div class="container hero-grid">
+
+<div>
+<h1>MD SHAH PORAN</h1>
+<h2>Sr. Executive, Engineering</h2>
+
+<p>
+Mechanical Engineer with 7+ years of experience in pharmaceutical packaging and manufacturing machinery maintenance.
+Experienced in equipment reliability, preventive maintenance, GMP environments, engineering projects, CFD research,
+heat transfer analysis, and fluid engineering solutions. Skilled in bridging practical industrial engineering with advanced simulation technologies.
+</p>
+
+<div class="hero-buttons">
+<a href="#contact" class="btn btn-primary">Contact Me</a>
+<a href="https://www.linkedin.com/in/mohammad-shah-poran-079820196/" target="_blank" class="btn btn-outline">LinkedIn</a>
+</div>
+</div>
+
+<div class="profile-card">
+<div class="profile-photo">SP</div>
+
+<h3 style="margin-top:25px;">MD SHAH PORAN</h3>
+<p style="margin-top:10px;color:var(--muted);">
+📍 Barishal, Bangladesh
+</p>
+
+<p style="margin-top:10px;color:var(--muted);">
+✉️ mporan938@gmail.com
+</p>
+</div>
+
+</div>
+</section>
+
+<section id="about">
+<div class="container">
+<h2 class="section-title hidden">About Me</h2>
+
+<div class="card hidden">
+<p>
+Mechanical Engineer specializing in pharmaceutical engineering, maintenance management, equipment reliability,
+and manufacturing systems. Over the past seven years, I have worked with packaging and production machinery,
+focusing on preventive maintenance, troubleshooting, process improvement, and engineering compliance.
+</p>
+
+<br>
+
+<p>
+In addition to industrial engineering, I possess research experience in Computational Fluid Dynamics (CFD),
+heat transfer enhancement, fluid mechanics, and engineering simulation using ANSYS Fluent and MATLAB.
+My work combines practical engineering solutions with analytical research approaches.
+</p>
+</div>
+</div>
+</section>
+
+<section id="experience">
+<div class="container">
+<h2 class="section-title hidden">Work Experience</h2>
+
+<div class="timeline">
+
+<div class="timeline-item hidden">
+<h3>Sr. Executive, Engineering</h3>
+<h4 style="color:var(--accent);margin:10px 0;">
+August 2018 – June 2026
+</h4>
+
+<p style="color:var(--muted);">
+7+ years of experience in pharmaceutical packaging and manufacturing machinery maintenance,
+preventive maintenance planning, troubleshooting, engineering projects, equipment qualification support,
+GMP compliance, reliability improvement, and continuous process optimization.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="skills">
+<div class="container">
+
+<h2 class="section-title hidden">Technical Skills</h2>
+
+<div class="grid skills-grid">
+
+<div class="card hidden">
+<h3>CAD Packages</h3>
+<p>SolidWorks<br>AutoCAD</p>
+</div>
+
+<div class="card hidden">
+<h3>CAE Software</h3>
+<p>ANSYS Fluent</p>
+</div>
+
+<div class="card hidden">
+<h3>Programming</h3>
+<p>MATLAB/Simulink<br>C<br>C++</p>
+</div>
+
+<div class="card hidden">
+<h3>Engineering Expertise</h3>
+<p>
+Maintenance Management<br>
+GMP Compliance<br>
+Reliability Engineering<br>
+CFD Analysis<br>
+Heat Transfer<br>
+Fluid Mechanics
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="education">
+<div class="container">
+
+<h2 class="section-title hidden">Education</h2>
+
+<div class="card hidden">
+<h3>BSc in Mechanical Engineering</h3>
+<p>
+Bachelor of Science in Mechanical Engineering with focus on
+thermal engineering, fluid mechanics, machine design,
+manufacturing engineering, and computational engineering applications.
+</p>
+</div>
+
+</div>
+</section>
+
+<section id="publications">
+<div class="container">
+
+<h2 class="section-title hidden">Research Publications</h2>
+
+<div class="card hidden">
+
+<h3>Published Research Works</h3>
+
+<a class="publication"
+href="http://matjournals.in/index.php/JoTES/article/view/2203"
+target="_blank">
+Publication 1 – Journal Article
+</a>
+
+<a class="publication"
+href="https://link.springer.com/article/10.1007/s42108-022-00224-x"
+target="_blank">
+Publication 2 – Springer Journal Article
+</a>
+
+</div>
+
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+
+<div class="contact-box hidden">
+
+<h2 class="section-title">Let's Connect</h2>
+
+<p class="section-subtitle">
+Available for engineering collaboration, maintenance leadership,
+research discussions, and technical consulting.
+</p>
+
+<p>
+📧 <a href="mailto:mporan938@gmail.com">mporan938@gmail.com</a>
+</p>
+
+<br>
+
+<p>
+💼 <a href="https://www.linkedin.com/in/mohammad-shah-poran-079820196/" target="_blank">
+LinkedIn Profile
+</a>
+</p>
+
+<br>
+
+<p>
+📍 Barishal, Bangladesh
+</p>
+
+</div>
+
+</div>
+</section>
+
+<footer>
+© 2026 MD SHAH PORAN. All Rights Reserved.
+</footer>
+
+<script>
+
+// Dark Mode
+const themeBtn = document.getElementById('themeBtn');
+
+themeBtn.addEventListener('click',()=>{
+document.body.classList.toggle('light');
+
+themeBtn.innerHTML =
+document.body.classList.contains('light')
+? '☀️'
+: '🌙';
+});
+
+// Scroll Animation
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('show');
+}
+});
+},{
+threshold:0.15
+});
+
+document.querySelectorAll('.hidden').forEach(el=>{
+observer.observe(el);
+});
+
+</script>
+
+</body>
+</html>
